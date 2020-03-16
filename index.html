@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Card Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrap">
+
+        <h1>Card Machine</h1>
+
+        <section class="game">
+            <div class="color"></div>
+            <div class="color"></div>
+            <div class="color"></div>
+        </section>
+
+        <section class="play">
+            <input type="number" placeholder="Bid" id="bid">
+            <button id="start">Spin!</button>
+        </section>
+
+        <section class="panel">Credits: <span class="wallet"></span>$</section>
+
+        <section class="score">
+            <span class="result"></span> You played <span class="number"></span> games, <span class="win"></span>
+            won
+            and <span class="loss"></span> lost
+        </section>
+
+    </div>
+    <script src="/Js/Wallet.js"></script>
+    <script src="/Js/Statistics.js"></script>
+    <script src="Js/Draw.js"></script>
+    <script src="Js/Result.js"></script>
+    <script src="Js/Game.js"></script>
+    <script src="Js/main.js"></script>
+</body>
+
+</html>
