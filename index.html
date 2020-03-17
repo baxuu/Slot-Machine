@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Card Machine</title>
+    <title>Slot Machine</title>
+    <link href="https://fonts.googleapis.com/css?family=Bellota+Text&display=swap&subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="wrap">
 
-        <h1>Card Machine</h1>
+        <h1>Slot Machine</h1>
 
         <section class="game">
             <div class="color"></div>
@@ -21,25 +22,20 @@
         </section>
 
         <section class="play">
-            <input type="number" placeholder="Bid" id="bid">
-            <button id="start">Spin!</button>
+            <input type="number" placeholder=" ENTER BID" id="bid">
+            <button id="start">Spin</button>
         </section>
 
-        <section class="panel">Credits: <span class="wallet"></span>$</section>
+        <section class="panel">CREDITS: <span class="wallet"></span>$</section>
 
         <section class="score">
-            <span class="result"></span> You played <span class="number"></span> games, <span class="win"></span>
-            won
-            and <span class="loss"></span> lost
+            <span class="result"></span> PLAYED: <span class="number"></span> GAMES, <span class="win"></span> WON AND
+            <span class="loss"></span> LOST
         </section>
 
     </div>
-    <script src="/Js/Wallet.js"></script>
-    <script src="/Js/Statistics.js"></script>
-    <script src="Js/Draw.js"></script>
-    <script src="Js/Result.js"></script>
-    <script src="Js/Game.js"></script>
-    <script src="Js/main.js"></script>
+
+    <script src="js/main.js"></script>
 </body>
 
 </html>
