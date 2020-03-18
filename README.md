@@ -12,3 +12,6 @@ When three identical or three different symbols line up, this constitutes a win!
 #### HTML5, CSS3, JS
 
 ### Demo
+https://baxuu.github.io/Slot-Machine/
+
+![](https://raw.githubusercontent.com/baxuu/Slot-Machine/master/pic/sample.jpg)
