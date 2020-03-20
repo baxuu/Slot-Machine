@@ -6,14 +6,14 @@ class Draw {
     }
 
     drawResult() {
-        let colors = [];
+        let cards = [];
 
         for (let i = 0; i < this.options.length; i++) {
             const index = Math.floor(Math.random() * this.options.length)
-            const color = this.options[index]
-            colors.push(color)
+            const card = this.options[index]
+            cards.push(card)
         }
-        return colors
+        return cards
 
     }
 }
@@ -61,7 +61,7 @@ class Statistics {
             win,
             bid
         }
-        // console.log(gameResult);
+
         this.gameResults.push(gameResult)
     }
 
@@ -69,7 +69,7 @@ class Statistics {
         let games = this.gameResults.length;
         let wins = this.gameResults.filter(result => result.win).length;
         let losses = this.gameResults.filter(result => !result.win).length
-        // console.log(games, wins, losses);
+
         return [games, wins, losses]
     }
 
@@ -92,8 +92,9 @@ class Game {
         this.wallet = new Wallet(start);
 
         document.getElementById('start').addEventListener('click', this.startGame.bind(this));
+        document.getElementById("reset").addEventListener("click", this.resetGame.bind(this));
         this.spanWallet = document.querySelector('.panel span.wallet');
-        this.boards = [...document.querySelectorAll('div.color')];
+        this.boards = [...document.querySelectorAll('div.card')];
         this.inputBid = document.getElementById('bid');
         this.spanResult = document.querySelector('.score span.result');
         this.spanGames = document.querySelector('.score span.number');
@@ -104,11 +105,11 @@ class Game {
 
     }
 
-    render(colors = ["pink", "pink", "pink"], money = this.wallet.getWalletValue(), result = "", stats = [0, 0, 0], bid = 0, wonMoney = 0) {
+    render(cards = ["one", "one", "one"], money = this.wallet.getWalletValue(), result = "", stats = [0, 0, 0], bid = 0, wonMoney = 0) {
 
 
         this.boards.forEach((board, i) => {
-            board.className = colors[i]
+            board.className = cards[i]
         })
 
         this.spanWallet.textContent = money;
@@ -136,73 +137,27 @@ class Game {
         this.wallet.changeWallet(bid, '-');
 
         this.draw = new Draw();
-        const colors = this.draw.getDrawResult();
-        const win = Result.checkWinner(colors);
+        const cards = this.draw.getDrawResult();
+        const win = Result.checkWinner(cards);
         const wonMoney = Result.moneyWinInGame(win, bid);
         this.wallet.changeWallet(wonMoney);
         this.stats.addGameToStatistics(win, bid);
 
-        this.render(colors, this.wallet.getWalletValue(), win, this.stats.showGameStatistics(), bid, wonMoney)
+        this.render(cards, this.wallet.getWalletValue(), win, this.stats.showGameStatistics(), bid, wonMoney)
+
 
     }
+    resetGame() {
+        const cards = ["one", "one", "one"];
+        this.render(cards);
+        this.inputBid.value = "";
+        this.spanWallet.textContent = "200";
+        this.spanResult.textContent = "";
+        this.spanGames.textContent = "0";
+        this.spanWins.textContent = "0";
+        this.spanLosses.textContent = "0";
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
